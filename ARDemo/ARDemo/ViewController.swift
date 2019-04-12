@@ -10,24 +10,77 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the view's delegate
-        sceneView.delegate = self
-        
+      
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
+        createFigure(in: scene)
         
-        // Set the scene to the view
-        sceneView.scene = scene
+//        let sphereGeometry = SCNSphere(radius: 0.1)
+//        let sphereMaterial = SCNMaterial()
+//
+//        sphereMaterial.diffuse.contents = UIImage(named: "head.jpg")
+//        //sphereMaterial.diffuse.contentsTransform = SCNMatrix4MakeScale(2, 2, 2) масштаб текстуры
+//        let  sphereNode = SCNNode(geometry: sphereGeometry)
+//        sphereNode.geometry?.materials = [sphereMaterial]
+//
+//        sphereNode.position = SCNVector3(0, 0, -1)
+//        scene.rootNode.addChildNode(sphereNode)
+        
+
+//        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
+//
+//        let material = SCNMaterial()
+//        material.diffuse.contents = UIColor.blue
+//
+//        let boxNode = SCNNode(geometry: boxGeometry)
+//        boxNode.geometry?.materials = [material]
+//        boxNode.position = SCNVector3(0, 0, -1.0)
+//
+//        scene.rootNode.addChildNode(boxNode)
+//
+//        sceneView.scene = scene
+//
+//
+//        let textGeometry = SCNText(string: "Hello, darling", extrusionDepth: 2.0)
+//        let textMaterial = SCNMaterial()
+//        textMaterial.diffuse.contents = UIColor.purple
+//
+//        let textNode = SCNNode(geometry: textGeometry)
+//        textNode.scale = SCNVector3(0.005, 0.005, 0.005 )
+//        textNode.geometry?.materials = [textMaterial]
+//
+//        textNode.position = SCNVector3(0,0.2, -1.0)
+//        scene.rootNode.addChildNode(textNode)
+        
+    }
+    
+    private func createFigure(in scene: SCNScene) {
+        let array: [SCNGeometry] = [SCNPlane(), SCNSphere(), SCNBox(), SCNPyramid(), SCNTube(), SCNCone(), SCNTorus(), SCNCylinder(), SCNCapsule()]
+        var xCoordinate: Double = 1
+        
+        sceneView.autoenablesDefaultLighting = true
+        
+        for geometryShape in array {
+            let node = SCNNode(geometry: geometryShape)
+            
+            let material = SCNMaterial()
+            material.diffuse.contents = UIColor.red
+            
+            node.geometry?.materials = [material]
+            node.scale = SCNVector3(0.1, 0.1, 0.1)
+            node.position = SCNVector3(xCoordinate, 0, -1)
+            xCoordinate -= 0.2
+            
+            scene.rootNode.addChildNode(node)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,30 +99,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-
-    // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
 }
