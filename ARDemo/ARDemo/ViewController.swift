@@ -14,17 +14,21 @@ class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var session: ARSession {
+        return sceneView.session
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
         sceneView.showsStatistics = true
         sceneView.autoenablesDefaultLighting = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
         let scene = SCNScene()
-        createBox(in: scene)
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(boxTapped(touch:)))
-        self.sceneView.addGestureRecognizer(gestureRecognizer)
+       // let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(boxTapped(touch:)))
+       // self.sceneView.addGestureRecognizer(gestureRecognizer)
         
         sceneView.scene = scene
         
@@ -68,25 +72,23 @@ class ViewController: UIViewController {
         
     }
     
-    @objc func boxTapped(touch: UITapGestureRecognizer) {
-        let sceneView = touch.view as! SCNView
-        let touchLocation = touch.location(in: sceneView)
-        
-        let touchResults = sceneView.hitTest(touchLocation, options: [:])
-        
-        guard !touchResults.isEmpty, let node = touchResults.first?.node else {
-            return
-        }
-
-        let boxMaterial = SCNMaterial()
-        boxMaterial.diffuse.contents = UIColor.blue
-        boxMaterial.specular.contents = UIColor.red
-        node.geometry?.materials[0] = boxMaterial
-
-
-
-    }
-    
+//    @objc func boxTapped(touch: UITapGestureRecognizer) {
+//        let sceneView = touch.view as! SCNView
+//        let touchLocation = touch.location(in: sceneView)
+//
+//        let touchResults = sceneView.hitTest(touchLocation, options: [:])
+//
+//        guard !touchResults.isEmpty, let node = touchResults.first?.node else {
+//            return
+//        }
+//
+//        let boxMaterial = SCNMaterial()
+//        boxMaterial.diffuse.contents = UIColor.blue
+//        boxMaterial.specular.contents = UIColor.red
+//        node.geometry?.materials[0] = boxMaterial
+//
+//    }
+//
     private func createBox(in scene: SCNScene) {
         
         let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
@@ -96,8 +98,9 @@ class ViewController: UIViewController {
         boxMaterial.specular.contents = UIColor.yellow
         
         let boxNode = SCNNode(geometry: box)
+        boxNode.name = "box"
         boxNode.geometry?.materials = [boxMaterial]
-        boxNode.position = SCNVector3(0.0, 0.0, -1.0)
+        boxNode.position = SCNVector3(0.0, 0.0, -0.5)
         scene.rootNode.addChildNode(boxNode)
         
         
@@ -144,4 +147,20 @@ class ViewController: UIViewController {
         sceneView.session.pause()
     }
     
+    @IBAction func resetTapped(sender: UIButton){
+        session.pause()
+        sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            if node.name == "box" {
+                node.removeFromParentNode()
+            }
+        }
+        let configuration = ARWorldTrackingConfiguration()
+        session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
+        
+    }
+    
+    @IBAction func addTapped(sender: UIButton){
+        createBox(in: sceneView.scene)
+    }
+
 }
