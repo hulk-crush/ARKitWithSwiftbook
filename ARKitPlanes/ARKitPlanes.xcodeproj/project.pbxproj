@@ -18,6 +18,8 @@
 		8488C04E2264E66300526CF0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C04D2264E66300526CF0 /* Box.swift */; };
 		8488C0502265EDCC00526CF0 /* BitMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C04F2265EDCC00526CF0 /* BitMaskCategory.swift */; };
 		8488C0522265F54E00526CF0 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C0512265F54E00526CF0 /* VirtualObject.swift */; };
+		8488C0552266179A00526CF0 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 8488C0532266179A00526CF0 /* smoke.png */; };
+		8488C0562266179A00526CF0 /* smoke.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 8488C0542266179A00526CF0 /* smoke.scnp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		8488C04D2264E66300526CF0 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		8488C04F2265EDCC00526CF0 /* BitMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMaskCategory.swift; sourceTree = "<group>"; };
 		8488C0512265F54E00526CF0 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		8488C0532266179A00526CF0 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		8488C0542266179A00526CF0 /* smoke.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = smoke.scnp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				8488C04F2265EDCC00526CF0 /* BitMaskCategory.swift */,
 				8488C0512265F54E00526CF0 /* VirtualObject.swift */,
 				8488C04D2264E66300526CF0 /* Box.swift */,
+				8488C0532266179A00526CF0 /* smoke.png */,
+				8488C0542266179A00526CF0 /* smoke.scnp */,
 				8488C0492264D9AC00526CF0 /* Plane.swift */,
 				8488C03B2264D90C00526CF0 /* Main.storyboard */,
 				8488C04B2264DB2600526CF0 /* pinkWeb.png */,
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8488C0382264D90C00526CF0 /* art.scnassets in Resources */,
+				8488C0562266179A00526CF0 /* smoke.scnp in Resources */,
+				8488C0552266179A00526CF0 /* smoke.png in Resources */,
 				8488C0422264D90E00526CF0 /* LaunchScreen.storyboard in Resources */,
 				8488C03F2264D90E00526CF0 /* Assets.xcassets in Resources */,
 				8488C04C2264DB2600526CF0 /* pinkWeb.png in Resources */,
