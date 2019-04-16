@@ -24,14 +24,15 @@ class Plane: SCNNode {
         self.planeGeometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
         
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "pinkWeb.png")
+        material.diffuse.contents = UIColor.clear //UIImage(named: "pinkWeb.png")
+       
         self.planeGeometry.materials = [material]
         
         self.geometry = planeGeometry
         
         let physicsShape = SCNPhysicsShape(geometry: self.geometry!, options: nil)
-        self.physicsBody = SCNPhysicsBody(type: .static, shape: physicsShape)
         
+        self.physicsBody = SCNPhysicsBody(type: .static, shape: physicsShape)
         self.physicsBody?.categoryBitMask = BitMaskCategory.plane
         self.physicsBody?.collisionBitMask = BitMaskCategory.box
         self.physicsBody?.contactTestBitMask = BitMaskCategory.box
