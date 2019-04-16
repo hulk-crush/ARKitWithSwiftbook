@@ -17,6 +17,7 @@
 		8488C04C2264DB2600526CF0 /* pinkWeb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8488C04B2264DB2600526CF0 /* pinkWeb.png */; };
 		8488C04E2264E66300526CF0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C04D2264E66300526CF0 /* Box.swift */; };
 		8488C0502265EDCC00526CF0 /* BitMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C04F2265EDCC00526CF0 /* BitMaskCategory.swift */; };
+		8488C0522265F54E00526CF0 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C0512265F54E00526CF0 /* VirtualObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8488C04B2264DB2600526CF0 /* pinkWeb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkWeb.png; sourceTree = SOURCE_ROOT; };
 		8488C04D2264E66300526CF0 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		8488C04F2265EDCC00526CF0 /* BitMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMaskCategory.swift; sourceTree = "<group>"; };
+		8488C0512265F54E00526CF0 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				8488C0372264D90C00526CF0 /* art.scnassets */,
 				8488C0392264D90C00526CF0 /* ViewController.swift */,
 				8488C04F2265EDCC00526CF0 /* BitMaskCategory.swift */,
+				8488C0512265F54E00526CF0 /* VirtualObject.swift */,
 				8488C04D2264E66300526CF0 /* Box.swift */,
 				8488C0492264D9AC00526CF0 /* Plane.swift */,
 				8488C03B2264D90C00526CF0 /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			files = (
 				8488C03A2264D90C00526CF0 /* ViewController.swift in Sources */,
 				8488C04E2264E66300526CF0 /* Box.swift in Sources */,
+				8488C0522265F54E00526CF0 /* VirtualObject.swift in Sources */,
 				8488C0502265EDCC00526CF0 /* BitMaskCategory.swift in Sources */,
 				8488C04A2264D9AC00526CF0 /* Plane.swift in Sources */,
 				8488C0362264D90C00526CF0 /* AppDelegate.swift in Sources */,
